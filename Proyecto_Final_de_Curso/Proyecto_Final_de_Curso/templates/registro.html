@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+{% block title %}REGISTER{% endblock %}
+{% block css %} "/static/css/estilos.css"{% endblock %}
+{% block body %}
+<form class="form" action="/register" method="post">
+    <h2 class="form_title">Regístrate</h2>
+
+    <div class="form_container">
+        <div class="form_group">
+            <input type="text" id="name" name="name" class="form_input" placeholder="nombre">
+            <label for="name" class="form_label">Nombre:</label>
+            <span class="form_line"></span>
+        </div>
+        <div class="form_group">
+            <input type="text" id="apellido" name="apellido" class="form_input" placeholder="apellido">
+            <label for="apellido" class="form_label">Apellido:</label>
+            <span class="form_line"></span>
+        </div>
+        <div class="form_group">
+            <input type="email" id="correo" name="correo" class="form_input" placeholder=" correo">
+            <label for="correo" class="form_label">Correo Electrónico:</label>
+            <span class="form_line"></span>
+        </div>
+        <div class="form_group">
+            <input type="number" id="telefono" name="telefono" class="form_input" placeholder="Telefono">
+            <label for="telefono" class="form_label">Teléfono:</label>
+            <span class="form_line"></span>
+        </div>
+        <div class="form_group">
+            <input type="text" id="usuario" name="usuario" class="form_input" placeholder="usuario">
+            <label for="usuario" class="form_label">Usuario:</label>
+            <span class="form_line"></span>
+        </div>
+        <div class="form_group">
+            <input type="password" id="contraseña" name="contraseña" class="form_input" placeholder="contraseña">
+            <label for="contraseña" class="form_label">Contraseña:</label>
+            <span class="form_line"></span>
+        </div>
+        <div class="form_group">
+            <input type="password" id="confirmar" name="confirmar" class="form_input" placeholder="Confirmar">
+            <label for="confirmar" class="form_label">Confirmar contraseña:</label>
+            <span class="form_line"></span>
+        </div>
+
+        <button class="btn btn-primary" type="submit">register</button>
+    </div>
+  </form>
+{% endblock %}

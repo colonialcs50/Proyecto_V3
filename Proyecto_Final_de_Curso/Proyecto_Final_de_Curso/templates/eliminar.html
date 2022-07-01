@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+{% block title %}Admin{% endblock %}
+{% block css %} "/static/css/admint.css"{% endblock %}
+{% block body %}
+<form class="form" action="/eliminar" method="post">
+    <h2 class="form_title">Administracion</h2>
+    <div>
+        <a href="/landing"class="estilos">Inicio</a>
+        <a  href="/admin" class="estilos">Ingresar Platillo</a>
+        <a href="/administrador" class="estilos">Editar menu</a>
+    </div>
+
+    <div class="form_container">
+        <div class="form_group">
+            <input type="text" id="id" name="id" class="form_input"
+                placeholder="id">
+            <label for="nombre" class="form_label">id</label>
+            <span class="form_line"></span>
+        </div>
+
+        <input type="submit" class="form_submit" value="Eliminar">
+        <p clas="warning" id="warning"></p>
+    </div>
+
+</form>
+
+<table class="normal" summary="Tabla genérica" width="100px" height="100px">
+    <tr>
+        <th scope="col" class="normal th">ID</th>
+        <th scope="col" class="normal th">Nombre</th>
+        <th scope="col" class="normal th">Descripcion</th>
+        <th scope="col" class="normal th">Precio</th>
+        <th scope="col" class="normal th">Precio Descuento</th>
+        <th scope="col" class="normal th">Descuento</th>
+    </tr>
+    {% for comidas in comidas %}
+    <tr>
+        <td> {{ comidas["id"] }}</td>
+        <td> {{ comidas["nombre"].upper() }}</td>
+        <td> {{ comidas["descripcion"] }}</td>
+        <td> {{ comidas["precio"] }}</td>
+        <td> {{ comidas["precio_decuento"] }}</td>
+        <td> {{ comidas["Descuento"] }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

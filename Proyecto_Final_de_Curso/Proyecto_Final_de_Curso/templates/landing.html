@@ -1,0 +1,234 @@
+{% extends "layout.html" %}
+{% block title %}Colonial{% endblock %}
+{% block css %} "/static/css/landing.css"{% endblock %}
+{% block body %}
+<!--Inicio de la seccion del header-->
+<section class="header">
+    <a href="#" class="logo"><i class="fas fa-utensils"></i>Colonial</a>   
+    <a class="estilo_nombre"> {{ usuario }}</a>     
+    <nav class="navbar">
+        <a href="#home">Home</a>
+        <a href="#acerca">Acerca</a>
+        {% if admin == 'admin' %}
+        <a href="/admin"> {{ admin }} </a>
+        {% else %}
+        {% endif %}
+        <a href="#menu">Menu</a>
+        <!--<a href="#galeria">Galeria</a>--> 
+        <!--<a href="#orden">Orden</a>-->
+
+        {% if session["user_id"] %}
+        <a href="/logout" class="btn">Log Out</a>
+        {% else %}
+        <a href="/login" class="btn">Login</a>
+        {% endif %}
+    </nav>
+
+    <div id="menu-btn" class="fas fa-bars"></div>
+</section>
+<!--Fin de la seccion del header-->
+
+<!--Inicio de la seccion del home-->
+<section class="home" id="home">
+
+    <div class="swiper home-slider">
+ 
+       <div class="swiper-wrapper">
+ 
+          <div class="swiper-slide slide" style="background: url(static/imagesLanding/home-slide-1.jpg) no-repeat;">
+             <div class="content">
+                <span>Restaurante Colonial</span>
+                <h3>Un arte gastronómico</h3>
+             </div>
+          </div>
+ 
+          <div class="swiper-slide slide" style="background: url(static/imagesLanding/home-slide-2.jpg) no-repeat;">
+             <div class="content">
+                <span>Restaurante Colonial</span>
+                <h3>Para compartir momentos</h3>
+             </div>
+          </div>
+ 
+          <div class="swiper-slide slide" style="background: url(static/imagesLanding/home-slide-3.jpg) no-repeat;">
+             <div class="content">
+                <span>Restaurante Colonial</span>
+                <h3>Donde comer es un placer</h3>
+             </div>
+          </div>
+
+       </div>
+       <div class="swiper-button-next"></div>
+       <div class="swiper-button-prev"></div>
+    </div>
+ </section>
+<!--Fin de la seccion del home-->
+
+<!--Inicio de la seccion del home-->
+<section class="about" id="about">
+
+  <div class="image">
+     <img src="static/imagesLanding/about-img.png" alt="">
+  </div>
+
+  <div class="content">
+     <h3 class="title">Restaurante Colonial</h3>
+     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio at, saepe accusamus dolorum, quos eos nesciunt amet exercitationem illum quis nostrum, repellat quaerat eum debitis fugit alias magnam omnis!</p>
+     <a href="#" class="btn">read more</a>
+     <div class="icons-container">
+        <div class="icons">
+           <img src="static/imagesLanding/about-icon-1.png" alt="">
+           <h3>Platillos de excelencia</h3>
+        </div>
+        <div class="icons">
+           <img src="static/imagesLanding/about-icon-2.png" alt="">
+           <h3>Platillos de excelencia</h3>
+        </div>
+        <div class="icons">
+           <img src="static/imagesLanding/about-icon-3.png" alt="">
+           <h3>Platillos de excelencia</h3>
+        </div>
+     </div>
+  </div>
+
+</section>
+<!--Fin de la seccion del home-->
+
+<!-- Inicio de la seccion de comida-->
+
+<section class="food" id="food">
+
+<div class="heading">  
+  <span>Platillos populares</span>
+  <h3>Deliciosa comida</h3>
+</div>
+
+<div class="swiper food-slider">
+
+  <div class="swiper-wrapper">
+
+     <div class="swiper-slide slide" data-name="food-1">
+        <img src="static/imagesLanding/food-img-1.png" alt="">
+        <h3>Deliciosa comida</h3>
+        <div class="price">$00.00</div>
+     </div>
+
+     <div class="swiper-slide slide" data-name="food-2">
+        <img src="static/imagesLanding/food-img-2.png" alt="">
+        <h3>Deliciosa comida</h3>
+        <div class="price">$00.00</div>
+     </div>
+
+     <div class="swiper-slide slide" data-name="food-3">
+        <img src="static/imagesLanding/food-img-3.png" alt="">
+        <h3>Deliciosa comida</h3>
+        <div class="price">$00.00</div>
+     </div>
+
+     <div class="swiper-slide slide" data-name="food-4">
+        <img src="static/imagesLanding/food-img-4.png" alt="">
+        <h3>Deliciosa comida</h3>
+        <div class="price">$00.00</div>
+     </div>
+
+     <div class="swiper-slide slide" data-name="food-5">
+        <img src="static/imagesLanding/food-img-5.png" alt="">
+        <h3>Deliciosa comida</h3>
+        <div class="price">$00.00</div>
+     </div>
+
+  </div>
+
+  <div class="swiper-pagination"></div>
+
+</div>
+
+</section>
+
+<!-- Inicio de la seccion de comida-->
+
+<!--Inicio de la seccion de preview-->
+
+<section class="food-preview-container">
+
+<div id="close-preview" class="fas fa-times"></div>
+
+<div class="food-preview" data-target="food-1">
+  <img src="static/imagesLanding/food-img-1.png" alt="">
+  <h3>Deliciosa comida</h3>
+  <div class="stars">
+     <i class="fas fa-star"></i>
+     <i class="fas fa-star"></i>
+     <i class="fas fa-star"></i>
+     <i class="fas fa-star"></i>
+     <i class="fas fa-star"></i>
+  </div>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, hic!</p>
+  <div class="price">$00.00</div>
+  <a href="#" class="btn">Comprar</a>
+</div>
+
+<div class="food-preview" data-target="food-2">
+  <h3>Deliciosa comida</h3>
+  <div class="stars">
+     <i class="fas fa-star"></i>
+     <i class="fas fa-star"></i>
+     <i class="fas fa-star"></i>
+     <i class="fas fa-star"></i>
+     <i class="fas fa-star"></i>
+  </div>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, hic!</p>
+  <div class="price">$00.00</div>
+  <a href="#" class="btn">Comprar</a>
+</div>
+
+<div class="food-preview" data-target="food-3">
+  <h3>Deliciosa comida</h3>
+  <div class="stars">
+     <i class="fas fa-star"></i>
+     <i class="fas fa-star"></i>
+     <i class="fas fa-star"></i>
+     <i class="fas fa-star"></i>
+     <i class="fas fa-star"></i>
+  </div>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, hic!</p>
+  <div class="price">$00.00</div>
+  <a href="#" class="btn">Comprar</a>
+</div>
+
+<div class="food-preview" data-target="food-4">
+  <h3>Deliciosa comida</h3>
+  <div class="stars">
+     <i class="fas fa-star"></i>
+     <i class="fas fa-star"></i>
+     <i class="fas fa-star"></i>
+     <i class="fas fa-star"></i>
+     <i class="fas fa-star"></i>
+  </div>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, hic!</p>
+  <div class="price">$00.00</div>
+  <a href="#" class="btn">Comprar</a>
+</div>
+
+<div class="food-preview" data-target="food-5">
+  <h3>Deliciosa comida</h3>
+  <div class="stars">
+     <i class="fas fa-star"></i>
+     <i class="fas fa-star"></i>
+     <i class="fas fa-star"></i>
+     <i class="fas fa-star"></i>
+     <i class="fas fa-star"></i>
+  </div>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, hic!</p>
+  <div class="price">$00.00</div>
+  <a href="#" class="btn">Comprar</a>
+</div>
+
+</section>
+
+<!--Fin de la seccion de preview-->
+ <!--Swiper link-->
+ <script src='https://unpkg.com/swiper@7/swiper-bundle.min.js'></script>
+ <!--Enlace de archivo js personalizado-->
+ <script src="{{url_for('static', filename = 'js/landing.js')}}"></script>
+ <!--script src='static/js/landing.js'></script-->
+{% endblock %}
