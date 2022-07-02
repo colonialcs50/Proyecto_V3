@@ -222,6 +222,33 @@ def historial():
 @app.route("/comprar", methods=["GET", "POST"])
 @login_required
 def comprar():
-    comidas = db.execute(
-        "SELECT id, nombre, descripcion, precio, precio_decuento, Descuento FROM comida")
-    return render_template("comprar.html", comidas=comidas)
+    if request.method == "POST":
+        articulo = request.form.get("id")
+
+        if not articulo:
+            return apology("Introduci un Articulo", 400)
+
+        try:
+            cantidad = int(request.form.get("cantidad"))
+        except:
+            return apology("cantidad es un entero", 400)
+
+        if cantidad <= 0:
+            return apology("Pone un entero Positivo", 400)
+
+        user_id = session["user_id"]
+        item_name = db.execute("SELECT Username FROM usuario WHERE Id = ?", user_id)[0]["Username"]
+        item_price = item["price"]
+        total_price = item_price * shares
+
+        if cash < total_price:
+            return apology("No tenes suficiente dinero bro...", 403)
+        else:
+            db.execute("UPDATE users SET cash = ? WHERE id = ?", cash - total_price, user_id)
+            db.execute("INSERT INTO transactions (user_id, name, shares, price, type, symbol) VALUES (?, ?, ?, ?, ?, ?)",
+                       user_id, item_name, shares, item_price, 'buy', symbol)
+
+        return redirect('/')
+
+    else:
+        return render_template("buy.html")
