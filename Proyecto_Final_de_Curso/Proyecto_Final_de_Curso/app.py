@@ -237,18 +237,16 @@ def comprar():
             return apology("Pone un entero Positivo", 400)
 
         user_id = session["user_id"]
-        item_name = db.execute("SELECT Username FROM usuario WHERE Id = ?", user_id)[0]["Username"]
-        item_price = item["price"]
-        total_price = item_price * shares
+        item_name = db.execute("SELECT nombre FROM comida WHERE Id = ?", articulo)[0]["nombre"]
+        item_price = db.execute("SELECT precio FROM comida WHERE Id = ?", articulo)[0]["precio"]
+        total_price = item_price * cantidad
 
-        if cash < total_price:
-            return apology("No tenes suficiente dinero bro...", 403)
-        else:
-            db.execute("UPDATE users SET cash = ? WHERE id = ?", cash - total_price, user_id)
+        try:
             db.execute("INSERT INTO transactions (user_id, name, shares, price, type, symbol) VALUES (?, ?, ?, ?, ?, ?)",
-                       user_id, item_name, shares, item_price, 'buy', symbol)
-
+                       user_id, item_name, shares, total_price, 'buy', symbol)
+        except:
+            return render_template("comprar.html")
         return redirect('/')
 
     else:
-        return render_template("buy.html")
+        return render_template("comprar.html")
