@@ -105,37 +105,17 @@
 <div class="swiper food-slider">
 
   <div class="swiper-wrapper">
+     {% for comidas in comidas %}
+     <div class="swiper-slide slide" id= data-swiper-slide-index name=data-swiper-slide-index value="{{ comidas['id'] }}">
+         <form action="/landing" method="post">
+            <img src="static/imagesLanding/food-img-1.png" alt="">
+            <input id="lel" name="prueba" type="hidden" value="{{ comidas['nombre'] }}">
+            <h3 id="prueba" name="prueba"  value="{{ comidas['nombre'] }}">{{ comidas['nombre'] }}</h3>
+            <div class="price">{{ comidas["precio"] }}</div>
+         </form>
 
-     <div class="swiper-slide slide" data-name="food-1">
-        <img src="static/imagesLanding/food-img-1.png" alt="">
-        <h3>Deliciosa comida</h3>
-        <div class="price">$00.00</div>
      </div>
-
-     <div class="swiper-slide slide" data-name="food-2">
-        <img src="static/imagesLanding/food-img-2.png" alt="">
-        <h3>Deliciosa comida</h3>
-        <div class="price">$00.00</div>
-     </div>
-
-     <div class="swiper-slide slide" data-name="food-3">
-        <img src="static/imagesLanding/food-img-3.png" alt="">
-        <h3>Deliciosa comida</h3>
-        <div class="price">$00.00</div>
-     </div>
-
-     <div class="swiper-slide slide" data-name="food-4">
-        <img src="static/imagesLanding/food-img-4.png" alt="">
-        <h3>Deliciosa comida</h3>
-        <div class="price">$00.00</div>
-     </div>
-
-     <div class="swiper-slide slide" data-name="food-5">
-        <img src="static/imagesLanding/food-img-5.png" alt="">
-        <h3>Deliciosa comida</h3>
-        <div class="price">$00.00</div>
-     </div>
-
+     {% endfor %}
   </div>
 
   <div class="swiper-pagination"></div>
@@ -151,10 +131,10 @@
 <section class="food-preview-container">
 
 <div id="close-preview" class="fas fa-times"></div>
-
-<div class="food-preview" data-target="food-1">
+{% for comidas in comidas %}
+<div class="food-preview" value="{{ comidas['id'] }}">
   <img src="static/imagesLanding/food-img-1.png" alt="">
-  <h3>Deliciosa comida</h3>
+  <h3> {{ comidas['nombre'] }} </h3>
   <div class="stars">
      <i class="fas fa-star"></i>
      <i class="fas fa-star"></i>
@@ -162,11 +142,11 @@
      <i class="fas fa-star"></i>
      <i class="fas fa-star"></i>
   </div>
-  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, hic!</p>
-  <div class="price">$00.00</div>
+  <p>{{ comidas['descripcion'] }}</p>
+  <div class="price">{{ comidas['precio'] }}</div>
   <a href="#" class="btn">Comprar</a>
 </div>
-
+{% endfor %}
 <div class="food-preview" data-target="food-2">
   <h3>Deliciosa comida</h3>
   <div class="stars">

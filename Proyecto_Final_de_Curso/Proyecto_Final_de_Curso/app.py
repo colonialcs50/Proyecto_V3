@@ -56,10 +56,16 @@ def landing():
     user_id = session["user_id"]
     admin = db.execute("Select admin from usuario where Id = ?" , user_id)[0]["admin"]
     usuario = db.execute("SELECT Username FROM usuario WHERE Id = ?", user_id)[0]["Username"]
+    print(usuario)
+    comidas = db.execute("SELECT id, nombre, descripcion, precio, precio_decuento, Descuento FROM comida")
+    prueba = db.execute("SELECT nombre FROM comida")
+    prueba = prueba[0]["nombre"]
+    print(prueba)
+    print(request.form.get("lel"))
     if admin == 'on' and len(usuario) != 0:
-        return render_template("landing.html", usuario=usuario, admin='admin')
+        return render_template("landing.html", usuario=usuario, admin='admin', comidas=comidas, prueba=prueba)
     else:
-        return render_template("landing.html", usuario=usuario)
+        return render_template("landing.html", usuario=usuario, comidas=comidas)
 
 
 @app.route("/login", methods=["GET", "POST"])

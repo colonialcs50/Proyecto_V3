@@ -49,9 +49,9 @@ let previewBox = previewContainer.querySelectorAll('.food-preview');
 document.querySelectorAll('.food .slide').forEach(food =>{
    food.onclick = () =>{
       previewContainer.style.display = 'flex';
-      let name = food.getAttribute('data-name');
+      let name = food.getAttribute('value');
       previewBox.forEach(preveiw =>{
-         let target = preveiw.getAttribute('data-target');
+         let target = preveiw.getAttribute('value');
          if(name == target){
             preveiw.classList.add('active');
          }
