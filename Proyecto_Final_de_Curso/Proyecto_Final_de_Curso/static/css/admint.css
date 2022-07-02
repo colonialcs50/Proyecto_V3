@@ -37,7 +37,7 @@ body {
     border-radius: 10px;
     box-shadow: 0 5px 10px -5px rgb(0, 0, 0 / 30%);
     text-align: left;
-    margin-left: 20px;
+    margin-left: 0px;
 }
 
 .form_title {
@@ -46,7 +46,7 @@ body {
 }
 
 .form_p {
-    font-weight: 300;
+    font-weight: 200;
 }
 
 .form_link {
@@ -66,7 +66,7 @@ body {
 }
 
 .form_input {
-    width: 100%;
+    width: 80%;
     background: none;
     color: #706c6c;
     font-size: 1rem;
@@ -130,8 +130,8 @@ body {
 }
 
 */ .normal {
-    width: 100px;
-    border: 1px solid #000;
+    width: 90px;
+    border: 0.5px solid #000;
     text-align: right;
 }
 
@@ -145,20 +145,20 @@ body {
     border-radius: 10px;
     box-shadow: 0 5px 10px -5px rgb(0, 0, 0 / 30%);
     text-align: left;
-    margin-left: 10px;
+    margin-left: 20px;
 }
 
 .normal th {
     background-color: #dfdfdf;
     margin: auto;
-    width: 30%;
-    height:30%;
-    max-width: 200px;
+    width: 25%;
+    height:25%;
+    max-width: 100px;
     padding: 3.5em 3em;
     border-radius: 10px;
     box-shadow: 0 5px 10px -5px rgb(0, 0, 0 / 30%);
     text-align:center;
-    margin-left: 10px;
+    margin-left: 20px;
 }
 
 @media (max-width:425px) {
