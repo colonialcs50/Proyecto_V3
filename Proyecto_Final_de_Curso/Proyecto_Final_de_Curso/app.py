@@ -210,3 +210,9 @@ def eliminar():
         comidas = db.execute(
             "SELECT id, nombre, descripcion, precio, precio_decuento, Descuento FROM comida")
         return render_template("eliminar.html", comidas=comidas)
+
+
+@app.route("/historial", methods=["GET", "POST"])
+@login_required
+def historial():
+    return render_template("hs.html")

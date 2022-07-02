@@ -5,7 +5,7 @@
 <!--Inicio de la seccion del header-->
 <section class="header">
     <a href="#" class="logo"><i class="fas fa-utensils"></i>Colonial</a>
-    <a class="estilo_nombre"> {{ usuario }}</a>
+    <a class="estilo_nombre" href="/historial"> {{ usuario }}</a>
     <nav class="navbar">
         <a href="#home">Home</a>
         <a href="#acerca">Acerca</a>
@@ -131,7 +131,7 @@
 
 <section class="food-preview-container">
 
-<<<<<<< HEAD
+
 <div id="close-preview" class="fas fa-times"></div>
 {% for comidas in comidas %}
 <div class="food-preview" value="{{ comidas['id'] }}">
@@ -146,100 +146,10 @@
   </div>
   <p>{{ comidas['descripcion'] }}</p>
   <div class="price">{{ comidas['precio'] }}</div>
+  <input type="number" id="telefono" name="telefono" class="form_input" placeholder="Telefono">
   <a href="#" class="btn">Comprar</a>
 </div>
 {% endfor %}
-<div class="food-preview" data-target="food-2">
-  <h3>Deliciosa comida</h3>
-  <div class="stars">
-     <i class="fas fa-star"></i>
-     <i class="fas fa-star"></i>
-     <i class="fas fa-star"></i>
-     <i class="fas fa-star"></i>
-     <i class="fas fa-star"></i>
-  </div>
-  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, hic!</p>
-  <div class="price">$00.00</div>
-  <a href="#" class="btn">Comprar</a>
-</div>
-=======
-   <div id="close-preview" class="fas fa-times"></div>
-
-   <div class="food-preview" data-target="food-1">
-      <img src="static/imagesLanding/food-img-1.png" alt="">
-      <h3>lorem ipsum</h3>
-      <div class="stars">
-         <i class="fas fa-star"></i>
-         <i class="fas fa-star"></i>
-         <i class="fas fa-star"></i>
-         <i class="fas fa-star"></i>
-         <i class="fas fa-star"></i>
-      </div>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, hic!</p>
-      <div class="price">$00.00</div>
-      <a href="#" class="btn">buy now</a>
-   </div>
-
-   <div class="food-preview" data-target="food-2">
-      <img src="static/imagesLanding/food-img-2.png" alt="">
-      <h3>lorem ipsum</h3>
-      <div class="stars">
-         <i class="fas fa-star"></i>
-         <i class="fas fa-star"></i>
-         <i class="fas fa-star"></i>
-         <i class="fas fa-star"></i>
-         <i class="fas fa-star"></i>
-      </div>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, hic!</p>
-      <div class="price">$00.00</div>
-      <a href="#" class="btn">buy now</a>
-   </div>
->>>>>>> ac559fa616bcae28a3c5ab34cc0002faf2a43443
-
-   <div class="food-preview" data-target="food-3">
-      <img src="static/imagesLanding/food-img-3.png" alt="">
-      <h3>lorem ipsum</h3>
-      <div class="stars">
-         <i class="fas fa-star"></i>
-         <i class="fas fa-star"></i>
-         <i class="fas fa-star"></i>
-         <i class="fas fa-star"></i>
-         <i class="fas fa-star"></i>
-      </div>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, hic!</p>
-      <div class="price">$00.00</div>
-      <a href="#" class="btn">buy now</a>
-   </div>
-
-   <div class="food-preview" data-target="food-4">
-      <img src="static/imagesLanding/food-img-4.png" alt="">
-      <h3>lorem ipsum</h3>
-      <div class="stars">
-         <i class="fas fa-star"></i>
-         <i class="fas fa-star"></i>
-         <i class="fas fa-star"></i>
-         <i class="fas fa-star"></i>
-         <i class="fas fa-star"></i>
-      </div>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, hic!</p>
-      <div class="price">$00.00</div>
-      <a href="#" class="btn">buy now</a>
-   </div>
-
-   <div class="food-preview" data-target="food-5">
-      <img src="static/imagesLanding/food-img-5.png" alt="">
-      <h3>lorem ipsum</h3>
-      <div class="stars">
-         <i class="fas fa-star"></i>
-         <i class="fas fa-star"></i>
-         <i class="fas fa-star"></i>
-         <i class="fas fa-star"></i>
-         <i class="fas fa-star"></i>
-      </div>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, hic!</p>
-      <div class="price">$00.00</div>
-      <a href="#" class="btn">buy now</a>
-   </div>
 
 </section>
 
