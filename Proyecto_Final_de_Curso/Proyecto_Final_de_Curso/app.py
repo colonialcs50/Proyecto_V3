@@ -63,6 +63,7 @@ def landing():
     print(prueba)
     print(request.form.get("lel"))
     if admin == 'on' and len(usuario) != 0:
+        print(comidas[0]["id"])
         return render_template("landing.html", usuario=usuario, admin='admin', comidas=comidas, prueba=prueba)
     else:
         return render_template("landing.html", usuario=usuario, comidas=comidas)
@@ -210,3 +211,42 @@ def eliminar():
         comidas = db.execute(
             "SELECT id, nombre, descripcion, precio, precio_decuento, Descuento FROM comida")
         return render_template("eliminar.html", comidas=comidas)
+
+
+@app.route("/historial", methods=["GET", "POST"])
+@login_required
+def historial():
+    return render_template("hs.html")
+
+
+@app.route("/comprar", methods=["GET", "POST"])
+@login_required
+def comprar():
+    if request.method == "POST":
+        articulo = request.form.get("id")
+
+        if not articulo:
+            return apology("Introduci un Articulo", 400)
+
+        try:
+            cantidad = int(request.form.get("cantidad"))
+        except:
+            return apology("cantidad es un entero", 400)
+
+        if cantidad <= 0:
+            return apology("Pone un entero Positivo", 400)
+
+        user_id = session["user_id"]
+        item_name = db.execute("SELECT nombre FROM comida WHERE Id = ?", articulo)[0]["nombre"]
+        item_price = db.execute("SELECT precio FROM comida WHERE Id = ?", articulo)[0]["precio"]
+        total_price = item_price * cantidad
+
+        try:
+            db.execute("INSERT INTO transactions (user_id, name, shares, price, type, symbol) VALUES (?, ?, ?, ?, ?, ?)",
+                       user_id, item_name, shares, total_price, 'buy', symbol)
+        except:
+            return render_template("comprar.html")
+        return redirect('/')
+
+    else:
+        return render_template("comprar.html")
