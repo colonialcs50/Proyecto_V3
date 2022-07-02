@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+{% block title %}Admin{% endblock %}
+{% block css %} "/static/css/admin.css"{% endblock %}
+{% block body %}
+<form class="form" action="/admin" method="post">
+    <h2 class="form_title">COMPRAR</h2>
+    <div>
+        <a href="/landing" class="estilos">Inicio</a>
+        <a href="/carrito" class="estilos">Carrito</a>
+    </div>
+
+    <div class="form_container">
+        <div class="form_group">
+            <input type="text" id="id" name="id" class="form_input"
+                placeholder="id">
+            <label for="nombre" class="form_label">Id Comida</label>
+            <span class="form_line"></span>
+        </div>
+
+        <div class="form_group">
+            <input type="number" id="cantidad" name="cantidad" class="form_input" placeholder="cantidad">
+            <label for="cantidad" class="form_label">Cantidad</label>
+            <span class="form_line"></span>
+        </div>
+
+
+        <input type="submit" class="form_submit" value="Aplicar">
+        <p clas="warning" id="warning"></p>
+    </div>
+
+</form>
+
+<table class="normal" summary="Tabla genérica" width="100px" height="100px">
+    <tr>
+        <th scope="col" class="normal th">ID</th>
+        <th scope="col" class="normal th">Nombre</th>
+        <th scope="col" class="normal th">Descripcion</th>
+        <th scope="col" class="normal th">Precio</th>
+        <th scope="col" class="normal th">Precio Descuento</th>
+        <th scope="col" class="normal th">Descuento</th>
+    </tr>
+    {% for comidas in comidas %}
+    <tr>
+        <td> {{ comidas["id"] }}</td>
+        <td> {{ comidas["nombre"].upper() }}</td>
+        <td> {{ comidas["descripcion"] }}</td>
+        <td> {{ comidas["precio"] }}</td>
+        <td> {{ comidas["precio_decuento"] }}</td>
+        <td> {{ comidas["Descuento"] }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

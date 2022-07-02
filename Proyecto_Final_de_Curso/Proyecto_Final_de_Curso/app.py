@@ -63,6 +63,7 @@ def landing():
     print(prueba)
     print(request.form.get("lel"))
     if admin == 'on' and len(usuario) != 0:
+        print(comidas[0]["id"])
         return render_template("landing.html", usuario=usuario, admin='admin', comidas=comidas, prueba=prueba)
     else:
         return render_template("landing.html", usuario=usuario, comidas=comidas)
@@ -216,3 +217,11 @@ def eliminar():
 @login_required
 def historial():
     return render_template("hs.html")
+
+
+@app.route("/comprar", methods=["GET", "POST"])
+@login_required
+def comprar():
+    comidas = db.execute(
+        "SELECT id, nombre, descripcion, precio, precio_decuento, Descuento FROM comida")
+    return render_template("comprar.html", comidas=comidas)
