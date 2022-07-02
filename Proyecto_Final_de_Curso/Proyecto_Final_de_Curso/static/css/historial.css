@@ -1,0 +1,36 @@
+body {
+    font-family: 'Dosis', sans-serif;
+    opacity: 0.8;
+    background-image: url(/static/imagenesLogin/comida1.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    display: initial;
+    min-height: 100vh;
+}
+
+.description:hover {
+    height: 40px;
+}
+
+.table__productos {
+    display: none;
+}
+
+.table__productos>img {
+    width: 5rem;
+    object-fit: contain;
+    border-radius: 6px;
+    margin-right: 10px;
+}
+
+.table__cantidad>input {
+    width: 40px;
+    border: none;
+    outline: 0;
+    font-size: 16px;
+    font-weight: 700;
+    margin-right: 30px;
+    margin-bottom: 20px;
+}
