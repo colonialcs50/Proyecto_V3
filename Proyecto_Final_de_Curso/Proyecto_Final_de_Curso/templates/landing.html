@@ -5,16 +5,21 @@
 <!--Inicio de la seccion del header-->
 <section class="header">
     <a href="#" class="logo"><i class="fas fa-utensils"></i>Colonial</a>
+    {% if admin == 'admin' %}
+    <a class="estilo_nombre" href="/historial_a"> {{ usuario }}</a>
+    {% else %}
     <a class="estilo_nombre" href="/historial"> {{ usuario }}</a>
+    {% endif %}
+    
     <nav class="navbar">
         <a href="#home">Home</a>
         <a href="#acerca">Acerca</a>
-        <a href="carrito.html">Carrito</a>
+        <a href="/carrito">Carrito</a>
         {% if admin == 'admin' %}
         <a href="/admin"> {{ admin }} </a>
         {% else %}
         {% endif %}
-        <a href="#menu">Menu</a>
+        <a href="/comprar">Menu</a>
         <!--<a href="#galeria">Galeria</a>-->
         <!--<a href="#orden">Orden</a>-->
 

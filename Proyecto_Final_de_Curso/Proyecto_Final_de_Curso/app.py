@@ -59,11 +59,8 @@ def landing():
     print(usuario)
     comidas = db.execute("SELECT id, nombre, descripcion, precio, precio_decuento, Descuento FROM comida")
     prueba = db.execute("SELECT nombre FROM comida")
-    prueba = prueba[0]["nombre"]
-    print(prueba)
     print(request.form.get("lel"))
     if admin == 'on' and len(usuario) != 0:
-        print(comidas[0]["id"])
         return render_template("landing.html", usuario=usuario, admin='admin', comidas=comidas, prueba=prueba)
     else:
         return render_template("landing.html", usuario=usuario, comidas=comidas)
@@ -213,10 +210,35 @@ def eliminar():
         return render_template("eliminar.html", comidas=comidas)
 
 
+@app.route("/carrito", methods=["GET", "POST"])
+@login_required
+def carrito():
+    user_id = session["user_id"]
+    compras = db.execute("SELECT id, nombre, precio, cantidad, precio_t FROM compras WHERE user_id = ? AND confirmacion = 0" ,user_id)
+    boton = request.form.get("boton")
+    if boton == 'COMPRAR':
+        db.execute("UPDATE compras SET confirmacion = 1")
+        return redirect('/landing')
+
+    else:
+        return render_template("carrito.html", compras=compras)
+
+
 @app.route("/historial", methods=["GET", "POST"])
 @login_required
 def historial():
-    return render_template("hs.html")
+    user_id = session["user_id"]
+    nombre = db.execute("SELECT nombre FROM usuario WHERE Id=?", user_id)[0]["nombre"]
+    historial = db.execute("SELECT nombre, precio, cantidad, precio_t FROM compras WHERE user_id = ?  AND confirmacion = 1", user_id)    
+    return render_template("hs.html", nombre=nombre, historial=historial)
+
+@app.route("/historial_a", methods=["GET", "POST"])
+@login_required
+def historial_a():
+
+    historial = db.execute("SELECT user_id, nombre, precio, cantidad, precio_t FROM compras WHERE confirmacion = 1") 
+    print(historial)   
+    return render_template("hs_a.html", historial=historial)
 
 
 @app.route("/comprar", methods=["GET", "POST"])
@@ -240,13 +262,14 @@ def comprar():
         item_name = db.execute("SELECT nombre FROM comida WHERE Id = ?", articulo)[0]["nombre"]
         item_price = db.execute("SELECT precio FROM comida WHERE Id = ?", articulo)[0]["precio"]
         total_price = item_price * cantidad
-
         try:
-            db.execute("INSERT INTO transactions (user_id, name, shares, price, type, symbol) VALUES (?, ?, ?, ?, ?, ?)",
-                       user_id, item_name, shares, total_price, 'buy', symbol)
+            db.execute("INSERT INTO compras (user_id, nombre, cantidad, precio, precio_t, confirmacion) VALUES (?, ?, ?, ?, ?, 0)",
+                       user_id, item_name, cantidad, item_price, total_price)
+            return redirect('/landing')
         except:
-            return render_template("comprar.html")
-        return redirect('/')
+            return apology('Algo te salio mal', 400)
 
     else:
-        return render_template("comprar.html")
+        comidas = db.execute(
+            "SELECT id, nombre, descripcion, precio, precio_decuento, Descuento FROM comida")
+        return render_template("comprar.html", comidas=comidas)

@@ -14,7 +14,7 @@
       </tr>
       {% for historial in historial %}
       <tr>
-          <td> {{ nombre }}</td>
+          <td> # {{ historial["user_id"] }} </td>
           <td> {{ historial["nombre"].upper() }}</td>
           <td> {{ historial["precio"] }}</td>
           <td> {{ historial["cantidad"] }}</td>
