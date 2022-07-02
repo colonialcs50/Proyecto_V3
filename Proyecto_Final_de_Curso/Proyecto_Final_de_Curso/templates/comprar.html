@@ -1,12 +1,15 @@
 {% extends "layout.html" %}
 {% block title %}Admin{% endblock %}
-{% block css %} "/static/css/admin.css"{% endblock %}
+{% block css %} "/static/css/compra.css"{% endblock %}
 {% block body %}
 <form class="form" action="/admin" method="post">
     <h2 class="form_title">COMPRAR</h2>
     <div>
-        <a href="/landing" class="estilos">Inicio</a>
-        <a href="/carrito" class="estilos">Carrito</a>
+        <nav>
+            <ul> <a href="/landing" class="estilos">Inicio</a></ul>
+            <ul> <a href="/carrito" class="estilos">Carrito</a></ul>
+        </nav>
+       
     </div>
 
     <div class="form_container">
