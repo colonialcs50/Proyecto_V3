@@ -66,7 +66,7 @@ section {
 div .btn-var {
    margin-top: 1rem;
    display: inline-block;
-   /background: var(--peru);/
+   /*background: var(--peru);*/
    background: #ec6d6d;
    color:var(--white);
    font-size: 2rem;
@@ -368,7 +368,7 @@ div .btn-var {
 
 .footer{
   text-align: center;
-  /* padding-bottom: 10rem; */
+   padding-bottom: 10rem;
 }
 
 .footer .icons-container{
@@ -438,7 +438,7 @@ div .btn-var {
 
 
 
-/Inicio de Media query/
+/*Inicio de Media query*/
 @media (max-width:1200px){
 
    section {
@@ -494,4 +494,4 @@ div .btn-var {
    }
 }
 
-/Fin de Media query/
+/*Fin de Media query*/
