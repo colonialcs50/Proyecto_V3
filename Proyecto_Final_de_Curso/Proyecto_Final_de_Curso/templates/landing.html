@@ -12,7 +12,7 @@
     {% endif %}
     
     <nav class="navbar">
-        <a href="#home">Home</a>
+        <a href="#home">Inicio</a>
         <a href="#acerca">Acerca</a>
         <a href="/carrito">Carrito</a>
         {% if admin == 'admin' %}
@@ -24,9 +24,11 @@
         <!--<a href="#orden">Orden</a>-->
 
         {% if session["user_id"] %}
-        <a href="/logout" class="form_submit">Log Out</a>
+
+        <a href="/logout" class="btn">Cerrar Sesión</a>
         {% else %}
-        <a href="/login" class="form_submit">Login</a>
+        <a href="/login" class="btn">Iniciar Sesión</a>
+
         {% endif %}
     </nav>
 
