@@ -24,9 +24,15 @@
         <!--<a href="#orden">Orden</a>-->
 
         {% if session["user_id"] %}
+
         <a href="/logout" class="btn">Cerrar Sesión</a>
         {% else %}
         <a href="/login" class="btn">Iniciar Sesión</a>
+
+        <a href="/logout" class="form_submit">Log Out</a>
+        {% else %}
+        <a href="/login" class="form_submit">Login</a>
+
         {% endif %}
     </nav>
 
@@ -151,7 +157,7 @@
   </div>
   <p>{{ comidas['descripcion'] }}</p>
   <div class="price">{{ comidas['precio'] }}</div>
-  <a href="/comprar" class="btn">Comprar</a>
+  <a href="/comprar" class="form_submit">Comprar</a>
 </div>
 {% endfor %}
 
