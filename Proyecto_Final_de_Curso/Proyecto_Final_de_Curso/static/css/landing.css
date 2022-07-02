@@ -95,6 +95,7 @@ div .btn-var {
     font-size: 2.5rem;
     font-weight: bolder;
     color: var(--black);
+    text-decoration: double;
 }
 
 .header .logo i {
@@ -107,6 +108,7 @@ div .btn-var {
     margin-left: 2rem;
     color: var(--light-black);
     border-radius: 20px;
+    text-decoration: double;
 }
 
 .header .navbar a:hover {
@@ -485,6 +487,7 @@ div .btn-var {
     .header .navbar a {
         display: block;
         margin: 2rem;
+        text-decoration: none;
     }
 }
 
@@ -501,6 +504,23 @@ div .btn-var {
    font-family:'dosis', sans-serif;
    font-size: 2.5em;
    font-style: bolder;
+   text-decoration: double;
   
+}
+
+.form_submit {
+   background: #f23860;
+   color: #fff;
+   font-family: 'Dosis', sans-serif;
+   font-weight: 80px;
+   font-size: 10px;
+   padding: .5em 0;
+   border: none;
+   border-radius: 2.5em;
+}
+a {
+   display: block;
+   margin: 2rem;
+   text-decoration: none;
 }
 /*Fin de Media query*/
